@@ -1,0 +1,41 @@
+<?php
+
+namespace Milestone\Task\Seeder;
+
+use Illuminate\Database\Seeder;
+
+class ResourceActionMethodTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $_ = \DB::statement('SELECT @@GLOBAL.foreign_key_checks');
+        \DB::statement('set foreign_key_checks = 0');
+        \Milestone\Appframe\Model\ResourceActionMethod::query()
+            ->create([	'id' => '803301', 	'resource_action' => '803201', 	'type' => 'Form', 	'idn1' => '800901', 												])
+            ->create([	'id' => '803302', 	'resource_action' => '803202', 	'type' => 'List', 	'idn1' => '802201', 												])
+            ->create([	'id' => '803303', 	'resource_action' => '803203', 	'type' => 'Form', 	'idn1' => '800902', 												])
+            ->create([	'id' => '803304', 	'resource_action' => '803204', 	'type' => 'List', 	'idn1' => '802202', 												])
+            ->create([	'id' => '803305', 	'resource_action' => '803205', 	'type' => 'ManageRelation', 	'idn1' => '800801', 	'idn2' => '802201', 											])
+            ->create([	'id' => '803306', 	'resource_action' => '803206', 	'type' => 'ManageRelation', 	'idn1' => '800803', 	'idn2' => '802202', 											])
+            ->create([	'id' => '803307', 	'resource_action' => '803207', 	'type' => 'Form', 	'idn1' => '800903', 												])
+            ->create([	'id' => '803308', 	'resource_action' => '803208', 	'type' => 'List', 	'idn1' => '802203', 												])
+            ->create([	'id' => '803309', 	'resource_action' => '803209', 	'type' => 'ManageRelation', 	'idn1' => '800806', 	'idn2' => '802202', 											])
+            ->create([	'id' => '803310', 	'resource_action' => '803210', 	'type' => 'ListRelation', 	'idn1' => '800807', 	'idn2' => '802209', 											])
+            ->create([	'id' => '803311', 	'resource_action' => '803211', 	'type' => 'List', 	'idn1' => '802204', 												])
+            ->create([	'id' => '803312', 	'resource_action' => '803212', 	'type' => 'List', 	'idn1' => '802207', 												])
+            ->create([	'id' => '803313', 	'resource_action' => '803213', 	'type' => 'List', 	'idn1' => '802205', 												])
+            ->create([	'id' => '803314', 	'resource_action' => '803214', 	'type' => 'List', 	'idn1' => '802206', 												])
+            ->create([	'id' => '803315', 	'resource_action' => '803215', 	'type' => 'FormWithData', 	'idn1' => '800904', 	'idn2' => '802701', 											])
+            ->create([	'id' => '803316', 	'resource_action' => '803216', 	'type' => 'FormWithData', 	'idn1' => '800905', 	'idn2' => '802701', 											])
+            ->create([	'id' => '803317', 	'resource_action' => '803217', 	'type' => 'Data', 	'idn1' => '802701', 												])
+            ->create([	'id' => '803318', 	'resource_action' => '803218', 	'type' => 'FormWithData', 	'idn1' => '800906', 	'idn2' => '802701', 											])
+            ->create([	'id' => '803319', 	'resource_action' => '803219', 	'type' => 'ListRelation', 	'idn1' => '800808', 	'idn2' => '802210', 											])
+        ;
+        \DB::statement('set foreign_key_checks = ' . $_);
+    }
+}
