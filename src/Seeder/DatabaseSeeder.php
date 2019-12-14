@@ -16,13 +16,13 @@ class DatabaseSeeder extends Seeder
          $this->call([
              DatabaseReset::class,
 
-/*
+///*
              UserTableSeeder::class,
              GroupTableSeeder::class,
              GroupUserTableSeeder::class,
              RoleTableSeeder::class,
              GroupRoleTableSeeder::class,
-*/
+//*/
 
              ResourceTableSeeder::class,
              ResourceRoleTableSeeder::class,

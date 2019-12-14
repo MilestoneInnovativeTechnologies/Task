@@ -8,13 +8,13 @@ class DatabaseReset extends Seeder
 {
     public function run()
     {
-/*
+///*
         \DB::statement('DELETE FROM users WHERE id > 800000');
         \DB::statement('DELETE FROM __groups WHERE id > 800100');
         \DB::statement('DELETE FROM __group_users WHERE id > 800200');
         \DB::statement('DELETE FROM __roles WHERE id > 800300');
         \DB::statement('DELETE FROM __group_roles WHERE id > 800400');
-*/
+//*/
 
         \DB::statement('DELETE FROM __resources WHERE id > 800500');
         \DB::statement('DELETE FROM __resource_roles WHERE id > 800600');
@@ -32,7 +32,7 @@ class DatabaseReset extends Seeder
         \DB::statement('DELETE FROM __resource_form_data_map WHERE id > 801800');
         \DB::statement('DELETE FROM __resource_form_defaults WHERE id > 801900');
         \DB::statement('DELETE FROM __resource_form_collection WHERE id > 802000');
-//        \DB::statement('DELETE FROM __resource_form_upload WHERE id > 802100');
+        \DB::statement('DELETE FROM __resource_form_upload WHERE id > 802100');
         \DB::statement('DELETE FROM __resource_lists WHERE id > 802200');
         \DB::statement('DELETE FROM __resource_list_scopes WHERE id > 802300');
         \DB::statement('DELETE FROM __resource_list_relations WHERE id > 802400');
@@ -54,13 +54,13 @@ class DatabaseReset extends Seeder
         \DB::statement('DELETE FROM __resource_dashboard_sections WHERE id > 804000');
         \DB::statement('DELETE FROM __resource_dashboard_section_items WHERE id > 804100');
 
-/*
+///*
         \DB::statement('ALTER TABLE `users`  AUTO_INCREMENT=800001');
         \DB::statement('ALTER TABLE `__groups`  AUTO_INCREMENT=800101');
         \DB::statement('ALTER TABLE `__group_users`  AUTO_INCREMENT=800201');
         \DB::statement('ALTER TABLE `__roles`  AUTO_INCREMENT=800301');
         \DB::statement('ALTER TABLE `__group_roles`  AUTO_INCREMENT=800401');
-*/
+//*/
 
         \DB::statement('ALTER TABLE `__resources`  AUTO_INCREMENT=800501');
         \DB::statement('ALTER TABLE `__resource_roles`  AUTO_INCREMENT=800601');
