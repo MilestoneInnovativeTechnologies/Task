@@ -14,16 +14,18 @@ class CreatePartnerTasksTable extends Migration
     public function up()
     {
         Schema::create('partner_tasks', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->foreignCascade('partner', 'users');
-            $table->foreignCascade('task', 'tasks');
-            $table->enum('type', ['Main','Sub'])->nullable()->default('Main');
-            $table->string('remarks', '1024')->nullable();
-            $table->bigInteger('attachment1')->nullable();
-            $table->bigInteger('attachment2')->nullable();
-            $table->bigInteger('attachment3')->nullable();
-            $table->enum('progress', ['New','Dismissed','Returned','Completed'])->nullable()->default('New');
-            $table->audit();
+           $table->bigIncrements('id');
+			$table->foreignCascade('partner', 'users');
+			$table->foreignCascade('task', 'tasks');
+			$table->enum('type', ['Main','Sub'])->nullable()->default('Main');
+			$table->string('remarks', '1024')->nullable();
+			$table->bigInteger('attachment1')->nullable();
+			$table->bigInteger('attachment2')->nullable();
+			$table->bigInteger('attachment3')->nullable();
+			$table->foreignCascade('category', 'categories');
+			$table->enum('progress', ['New','Dismissed','Returned','Completed'])->nullable()->default('New');
+			$table->audit();
+
         });
     }
 

@@ -10,13 +10,16 @@ class Task extends Model
 
     protected static function boot(){
         parent::boot();
-        self::created(function($task){ if($task->assign && !$task->parent) $task->Partners()->sync(GroupPartner::where('group',$task->assign)->pluck('partner')); });
+        self::created(function($task){
+            if(!$task->assign || $task->parent) return;
+            $task->Partners()->sync(array_fill_keys(GroupPartner::where('group',$task->assign)->pluck('partner')->toArray(),['category' => $task->category]));
+        });
     }
 
-    public function Partners(){ return $this->belongsToMany(Partner::class,'partner_tasks','task','partner')->withTimestamps(); }
+    public function Partners(){ return $this->belongsToMany(Partner::class,'partner_tasks','task','partner')->using(PartnerTaskPivot::class)->withTimestamps(); }
     public function Main(){ return $this->belongsTo(Task::class,'parent','id'); }
     public function Tasks(){ return $this->hasMany(Task::class,'parent','id'); }
     public function Progress(){ return $this->hasMany(PartnerTask::class,'task','id'); }
-
-    public function scopeRecentlyCompleted($Q){ return $Q->whereHas('Progress',function($Q){ $Q->completed()->recent(); }); }
+	public function CategoryTask(){return $this->belongsTo(Category::class,'category','id'); }
+	public function CategoryProgress(){return $this->belongsTo(Category::class,'category','id'); }
 }

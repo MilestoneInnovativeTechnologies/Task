@@ -22,9 +22,10 @@ class CreateTasksTable extends Migration
             $table->enum('dismissable', ['No','Yes'])->nullable()->default('No');
             $table->enum('editable', ['No','Yes'])->nullable()->default('No');
             $table->tinyInteger('weightage')->default('100');
-            $table->enum('completion', ['Description','Attachment','Sub Task'])->nullable()->default('Description');
+            $table->enum('completion', ['Description','Attachment','Sub Task'])->default('Attachment');
             $table->foreignNullable('assign', 'groups');
             $table->enum('status', ['Active','Inactive'])->nullable()->default('Active');
+            $table->foreignCascade('category', 'categories');
             $table->audit();
         });
     }

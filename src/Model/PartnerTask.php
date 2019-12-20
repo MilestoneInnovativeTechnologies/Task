@@ -16,6 +16,11 @@ class PartnerTask extends ModelAlias
             $admin = Auth::user()->Groups->contains('name','task_administrators');
             if(!$admin) $builder->where('partner',Auth::id());
         });
+        self::created(function($model){
+            if($model->category) return;
+            $model->category = $model->Task->category;
+            $model->save();
+        });
     }
 
     public $storage = [['disk' => 'completion_attachments','path' => 'attachments']];
@@ -29,4 +34,6 @@ class PartnerTask extends ModelAlias
 
     public function Task(){ return $this->belongsTo(Task::class,'task','id'); }
     public function Partner(){ return $this->belongsTo(Partner::class,'partner','id'); }
+	public function CategoryProgress(){return $this->belongsTo(Category::class,'category','id'); }
+
 }
