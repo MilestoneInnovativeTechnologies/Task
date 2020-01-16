@@ -41,8 +41,12 @@ class ResourceFormFieldAttrTableSeeder extends Seeder
             ->create([	'id' => '801323', 	'form_field' => '801024', 	'name' => 'inline', 	'value' => '4', 												])
             ->create([	'id' => '801324', 	'form_field' => '801024', 	'name' => 'value', 	'value' => 'Dismissed', 												])
             ->create([	'id' => '801325', 	'form_field' => '801025', 	'name' => 'inline', 	'value' => '4', 												])
-            ->create([	'id' => '801326', 	'form_field' => '801026', 	'name' => 'inline', 	'value' => '4', 												])
-            ->create([	'id' => '801327', 	'form_field' => '801027', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801326', 	'form_field' => '801028', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801327', 	'form_field' => '801029', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801328', 	'form_field' => '801030', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801329', 	'form_field' => '801031', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801330', 	'form_field' => '801032', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801331', 	'form_field' => '801033', 	'name' => 'inline', 	'value' => '4', 												])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

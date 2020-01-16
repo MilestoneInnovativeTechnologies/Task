@@ -24,6 +24,7 @@ class ResourceFormTableSeeder extends Seeder
             ->create([	'id' => '800906', 	'resource' => '800507', 	'name' => 'TaskDismissForm', 	'description' => 'Form to dismiss a task', 	'title' => 'Dismiss', 	'action_text' => 'Dismiss', 										])
             ->create([	'id' => '800907', 	'resource' => '800503', 	'name' => 'CreateCategory', 	'description' => 'Form to create category', 	'title' => 'Category', 	'action_text' => 'Save', 										])
             ->create([	'id' => '800908', 	'resource' => '800508', 	'name' => 'CreateProfile', 	'description' => 'Form to create Profile', 	'title' => 'Profile', 	'action_text' => 'Save', 										])
+            ->create([	'id' => '800909', 	'resource' => '800507', 	'name' => 'TaskUpdateForm', 	'description' => 'Form to update a task status', 	'title' => 'Update', 	'action_text' => 'Update', 										])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

@@ -25,6 +25,7 @@ class ResourceRoleTableSeeder extends Seeder
             ->create([	'id' => '800607', 	'resource' => '800507', 	'role' => '800302', 	'actions_availability' => 'Except', 	'actions' => '803212,803213,803214,803215', 											])
             ->create([	'id' => '800608', 	'resource' => '800507', 	'role' => '800301', 	'actions_availability' => 'only', 	'actions' => '803218', 											])
             ->create([	'id' => '800609', 	'resource' => '800508', 	'role' => '800302', 	'actions_availability' => 'All', 												])
+            ->create([	'id' => '800610', 	'resource' => '800508', 	'role' => '800301', 	'actions_availability' => 'All', 												])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
 

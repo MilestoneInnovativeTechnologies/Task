@@ -49,6 +49,7 @@ class ResourceActionTableSeeder extends Seeder
             ->create([	'id' => '803231', 	'resource' => '800506', 	'name' => 'EditTaskFormAction', 	'description' => 'Action to edit Tasks', 	'title' => 'Edit ', 											])
             ->create([	'id' => '803232', 	'resource' => '800508', 	'name' => 'ListPartnerProfile', 	'description' => 'Action to list profile', 			'menu' => 'My Profile', 									])
             ->create([	'id' => '803233', 	'resource' => '800508', 	'name' => 'EditProfileAction', 	'description' => 'Action to edit partner', 	'title' => 'Edit ', 											])
+            ->create([	'id' => '803234', 	'resource' => '800507', 	'name' => 'PartnerTaskStatusUpdateAction', 	'description' => 'Action to call a form with data to update status and remarks', 	'title' => 'Update Status', 											])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }
