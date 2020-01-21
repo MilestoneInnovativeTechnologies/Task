@@ -50,6 +50,8 @@ class ResourceActionTableSeeder extends Seeder
             ->create([	'id' => '803232', 	'resource' => '800508', 	'name' => 'ListPartnerProfile', 	'description' => 'Action to list profile', 			'menu' => 'My Profile', 									])
             ->create([	'id' => '803233', 	'resource' => '800508', 	'name' => 'EditProfileAction', 	'description' => 'Action to edit partner', 	'title' => 'Edit ', 											])
             ->create([	'id' => '803234', 	'resource' => '800507', 	'name' => 'PartnerTaskStatusUpdateAction', 	'description' => 'Action to call a form with data to update status and remarks', 	'title' => 'Update Status', 											])
+            ->create([	'id' => '803235', 	'resource' => '800506', 	'name' => 'RecentlyUpdatedTaskList24Action', 	'description' => 'Action to call a list which displays tasks that are updated recently within 24 hours', 			'menu' => 'Recently Updated 24', 									])
+            ->create([	'id' => '803236', 	'resource' => '800506', 	'name' => 'RecentlyUpdatedTaskList48Action', 	'description' => 'Action to call a list which displays tasks that are updated recently within 48 hours', 			'menu' => 'Recently Updated 48', 									])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

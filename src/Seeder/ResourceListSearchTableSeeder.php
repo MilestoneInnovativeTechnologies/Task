@@ -46,6 +46,13 @@ class ResourceListSearchTableSeeder extends Seeder
             ->create([	'id' => '802628', 	'resource_list' => '802210', 	'field' => 'remarks', 													])
             ->create([	'id' => '802629', 	'resource_list' => '802212', 	'field' => 'name', 													])
             ->create([	'id' => '802630', 	'resource_list' => '802212', 	'field' => 'status', 													])
+            ->create([	'id' => '802631', 	'resource_list' => '802214', 	'field' => 'name', 													])
+            ->create([	'id' => '802632', 	'resource_list' => '802214', 	'field' => 'email', 													])
+            ->create([	'id' => '802633', 	'resource_list' => '802214', 	'field' => 'password', 													])
+            ->create([	'id' => '802634', 	'resource_list' => '802215', 	'field' => 'name', 	'relation' => '800809', 												])
+            ->create([	'id' => '802635', 	'resource_list' => '802215', 	'field' => 'name', 	'relation' => '800810', 												])
+            ->create([	'id' => '802636', 	'resource_list' => '802216', 	'field' => 'name', 	'relation' => '800809', 												])
+            ->create([	'id' => '802637', 	'resource_list' => '802216', 	'field' => 'name', 	'relation' => '800810', 												])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

@@ -52,6 +52,18 @@ class ResourceListLayoutTableSeeder extends Seeder
             ->create([	'id' => '802534', 	'resource_list' => '802213', 	'label' => 'Completed Tasks', 	'field' => 'completed_count', 												])
             ->create([	'id' => '802535', 	'resource_list' => '802214', 	'label' => 'Name', 	'field' => 'name', 												])
             ->create([	'id' => '802536', 	'resource_list' => '802214', 	'label' => 'Email', 	'field' => 'email', 												])
+            ->create([	'id' => '802537', 	'resource_list' => '802215', 	'label' => 'Category', 	'field' => 'name', 	'relation' => '800814', 											])
+            ->create([	'id' => '802538', 	'resource_list' => '802215', 	'label' => 'Task', 	'field' => 'name', 	'relation' => '800809', 											])
+            ->create([	'id' => '802539', 	'resource_list' => '802215', 	'label' => 'Partner', 	'field' => 'name', 	'relation' => '800810', 											])
+            ->create([	'id' => '802540', 	'resource_list' => '802215', 	'label' => 'Progress', 	'field' => 'progress', 												])
+            ->create([	'id' => '802541', 	'resource_list' => '802215', 	'label' => 'Remarks', 	'field' => 'remarks', 												])
+            ->create([	'id' => '802542', 	'resource_list' => '802215', 	'label' => 'Updated', 	'field' => 'updated_at', 												])
+            ->create([	'id' => '802543', 	'resource_list' => '802216', 	'label' => 'Category', 	'field' => 'name', 	'relation' => '800814', 											])
+            ->create([	'id' => '802544', 	'resource_list' => '802216', 	'label' => 'Task', 	'field' => 'name', 	'relation' => '800809', 											])
+            ->create([	'id' => '802545', 	'resource_list' => '802216', 	'label' => 'Partner', 	'field' => 'name', 	'relation' => '800810', 											])
+            ->create([	'id' => '802546', 	'resource_list' => '802216', 	'label' => 'Progress', 	'field' => 'progress', 												])
+            ->create([	'id' => '802547', 	'resource_list' => '802216', 	'label' => 'Remarks', 	'field' => 'remarks', 												])
+            ->create([	'id' => '802548', 	'resource_list' => '802216', 	'label' => 'Updated', 	'field' => 'updated_at', 												])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

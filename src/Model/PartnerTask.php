@@ -31,6 +31,8 @@ class PartnerTask extends ModelAlias
     public function scopeDismissed($Q){ return $Q->where('progress','Dismissed'); }
     public function scopeReturned($Q){ return $Q->where('progress','Returned'); }
     public function scopeRecent($Q){ return $Q->latest('updated_at'); }
+    public function scopeRecent24($Q){ return $Q->where('updated_at','>=',date('Y-m-d h:i:s',strtotime('-24 hours'))); }
+    public function scopeRecent48($Q){ return $Q->where('updated_at','>=',date('Y-m-d h:i:s',strtotime('-48 hours'))); }
 
     public function Task(){ return $this->belongsTo(Task::class,'task','id'); }
     public function Partner(){ return $this->belongsTo(Partner::class,'partner','id'); }

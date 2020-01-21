@@ -23,6 +23,8 @@ class ResourceScopeTableSeeder extends Seeder
             ->create([	'id' => '800705', 	'resource' => '800507', 	'name' => 'RecentlyUpdated', 	'description' => 'Get tasks which are updated recently', 	'method' => 'recent', 											])
             ->create([	'id' => '800706', 	'resource' => '800506', 	'name' => 'RecentlyCompleted', 	'description' => 'Tasks which are completed recently.', 	'method' => 'recentlyCompleted', 											])
             ->create([	'id' => '800707', 	'resource' => '800504', 	'name' => 'ProgressCount', 	'description' => 'Categories with pending and completed numbers', 	'method' => 'counts', 											])
+            ->create([	'id' => '800708', 	'resource' => '800507', 	'name' => 'Recent24', 	'description' => 'Tasks which are updated with last 24 hours', 	'method' => 'recent24', 											])
+            ->create([	'id' => '800709', 	'resource' => '800507', 	'name' => 'Recent48', 	'description' => 'Tasks which are updated with last 48 hours', 	'method' => 'recent48', 											])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }
