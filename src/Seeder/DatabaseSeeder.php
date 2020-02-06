@@ -72,6 +72,9 @@ class DatabaseSeeder extends Seeder
              TaskTableSeeder::class,
              PartnerTaskTableSeeder::class,
              PartnerTaskProgressTableSeeder::class,
+             TaskGroupMasterTableSeeder::class,
+             GroupTaskTableSeeder::class,
+             TaskPartnerGroupTableSeeder::class,
          ]);
     }
 }

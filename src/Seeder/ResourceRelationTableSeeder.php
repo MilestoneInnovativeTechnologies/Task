@@ -29,8 +29,12 @@ class ResourceRelationTableSeeder extends Seeder
             ->create([	'id' => '800811', 	'resource' => '800503', 	'name' => 'TaskCategory', 	'description' => 'Category has many Tasks', 	'method' => 'TaskCategory', 	'type' => 'hasMany', 	'relate_resource' => '800506', 									])
             ->create([	'id' => '800812', 	'resource' => '800503', 	'name' => 'TaskCategoryPartner', 	'description' => 'Category has many PartnerTasks', 	'method' => 'TaskCategoryPartner', 	'type' => 'hasMany', 	'relate_resource' => '800507', 									])
             ->create([	'id' => '800813', 	'resource' => '800506', 	'name' => 'CategoryTask', 	'description' => 'Task belongs to Category', 	'method' => 'CategoryTask', 	'type' => 'belongsTo', 	'relate_resource' => '800503', 									])
-            ->create([	'id' => '800814', 	'resource' => '800507', 	'name' => 'CategoryProgress', 	'description' => 'Partnertask belongs to Category', 	'method' => 'CategoryProgress', 	'type' => 'belongsTo', 	'relate_resource' => '800503', 									])
+            ->create([	'id' => '800814', 	'resource' => '800507', 	'name' => 'CategoryProgress', 	'description' => 'Partner task belongs to Category', 	'method' => 'CategoryProgress', 	'type' => 'belongsTo', 	'relate_resource' => '800503', 									])
             ->create([	'id' => '800815', 	'resource' => '800504', 	'name' => 'CategoryTasks', 	'description' => 'Tasks in a category', 	'method' => 'Tasks', 	'type' => 'hasMany', 	'relate_resource' => '800507', 									])
+            ->create([	'id' => '800816', 	'resource' => '800509', 	'name' => 'GroupTasks', 	'description' => 'Tasks in a group', 	'method' => 'Tasks', 	'type' => 'belongsToMany', 	'relate_resource' => '800506', 									])
+            ->create([	'id' => '800817', 	'resource' => '800506', 	'name' => 'TaskGroups', 	'description' => 'Groups of a task', 	'method' => 'Groups', 	'type' => 'belongsToMany', 	'relate_resource' => '800509', 									])
+            ->create([	'id' => '800818', 	'resource' => '800502', 	'name' => 'PartnerGroupTaskGroup', 	'description' => 'Task groups assigned to this partner group', 	'method' => 'TaskGroups', 	'type' => 'belongsToMany', 	'relate_resource' => '800509', 									])
+            ->create([	'id' => '800819', 	'resource' => '800509', 	'name' => 'TaskGroupPartnerGroup', 	'description' => 'Partner groups assigned to this task group', 	'method' => 'PartnerGroups', 	'type' => 'belongsToMany', 	'relate_resource' => '800502', 									])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

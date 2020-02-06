@@ -24,6 +24,9 @@ class ResourceTableSeeder extends Seeder
             ->create([	'id' => '800506', 	'name' => 'Task', 	'description' => 'Tasks', 	'title' => 'Tasks', 	'namespace' => 'Milestone\Task\Model', 	'table' => 'tasks', 										])
             ->create([	'id' => '800507', 	'name' => 'PartnerTask', 	'description' => 'Tasks that are assigned to partners', 	'title' => 'Tasks', 	'namespace' => 'Milestone\Task\Model', 	'table' => 'partner_tasks', 										])
             ->create([	'id' => '800508', 	'name' => 'Profile', 	'description' => 'User can view their profile', 	'title' => 'Profile', 	'namespace' => 'Milestone\Task\Model', 	'table' => 'users', 										])
+            ->create([	'id' => '800509', 	'name' => 'TaskGroupMaster', 	'description' => 'Group to organize tasks', 	'title' => 'Task Groups', 	'namespace' => 'Milestone\Task\Model', 	'table' => 'task_group_masters', 										])
+            ->create([	'id' => '800510', 	'name' => 'GroupTask', 	'description' => 'Tasks that belongs to groups', 	'title' => 'Group Tasks', 	'namespace' => 'Milestone\Task\Model', 	'table' => 'group_tasks', 										])
+            ->create([	'id' => '800511', 	'name' => 'TaskPartnerGroup', 	'description' => 'Task group to Partner Group maps', 	'title' => 'Task Partner Groups', 	'namespace' => 'Milestone\Task\Model', 	'table' => 'task_partner_group', 										])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

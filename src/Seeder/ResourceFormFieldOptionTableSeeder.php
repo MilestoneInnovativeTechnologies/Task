@@ -18,9 +18,9 @@ class ResourceFormFieldOptionTableSeeder extends Seeder
         \Milestone\Appframe\Model\ResourceFormFieldOption::query()
             ->create([	'id' => '801201', 	'form_field' => '801003', 	'type' => 'Enum', 													])
             ->create([	'id' => '801202', 	'form_field' => '801009', 	'type' => 'Foreign', 		'value_attr' => 'id', 	'label_attr' => 'name', 										])
-            ->create([	'id' => '801203', 	'form_field' => '801010', 	'type' => 'Foreign', 		'value_attr' => 'id', 	'label_attr' => 'name', 										])
-            ->create([	'id' => '801204', 	'form_field' => '801027', 	'type' => 'Enum', 													])
-            ->create([	'id' => '801205', 	'form_field' => '801032', 	'type' => 'Enum', 													])
+            ->create([	'id' => '801203', 	'form_field' => '801026', 	'type' => 'Enum', 													])
+            ->create([	'id' => '801204', 	'form_field' => '801031', 	'type' => 'Enum', 													])
+            ->create([	'id' => '801205', 	'form_field' => '801035', 	'type' => 'Enum', 													])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

@@ -22,6 +22,7 @@ class ResourceDataTableSeeder extends Seeder
             ->create([	'id' => '802704', 	'resource' => '800506', 	'name' => 'TasksData', 	'description' => 'Tasks details', 	'title_field' => 'name', 											])
             ->create([	'id' => '802705', 	'resource' => '800503', 	'name' => 'CategoriesData', 	'description' => 'Categories details', 	'title_field' => 'name', 											])
             ->create([	'id' => '802706', 	'resource' => '800508', 	'name' => 'ProfileData', 	'description' => 'Profile', 	'title_field' => 'name', 											])
+            ->create([	'id' => '802707', 	'resource' => '800509', 	'name' => 'TaskGroupData', 	'description' => 'Task Group details', 	'title_field' => 'name', 											])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

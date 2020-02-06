@@ -32,6 +32,7 @@ class ResourceListTableSeeder extends Seeder
             ->create([	'id' => '802214', 	'resource' => '800508', 	'name' => 'ProfileList', 	'description' => 'List Profile List', 	'title' => 'Profile', 	'identity' => 'name', 	'items_per_page' => '10', 									])
             ->create([	'id' => '802215', 	'resource' => '800507', 	'name' => 'RecentlyUpdatedTasks24', 	'description' => 'List of tasks that updated recently within 24 hours', 	'title' => 'Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
             ->create([	'id' => '802216', 	'resource' => '800507', 	'name' => 'RecentlyUpdatedTasks48', 	'description' => 'List of tasks that updated recently within 48 hours', 	'title' => 'Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
+            ->create([	'id' => '802217', 	'resource' => '800509', 	'name' => 'TaskGroupList', 	'description' => 'List all task groups', 	'title' => 'Task Groups', 	'identity' => 'name', 	'items_per_page' => '30', 									])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

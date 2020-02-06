@@ -50,8 +50,14 @@ class ResourceActionMethodTableSeeder extends Seeder
             ->create([	'id' => '803332', 	'resource_action' => '803232', 	'type' => 'List', 	'idn1' => '802214', 												])
             ->create([	'id' => '803333', 	'resource_action' => '803233', 	'type' => 'FormWithData', 	'idn1' => '800908', 	'idn2' => '802706', 											])
             ->create([	'id' => '803334', 	'resource_action' => '803234', 	'type' => 'FormWithData', 	'idn1' => '800909', 	'idn2' => '802701', 											])
-            ->create([	'id' => '803335', 	'resource_action' => '803235', 	'type' => 'List', 	'idn1' => '802215', 												])
-            ->create([	'id' => '803336', 	'resource_action' => '803236', 	'type' => 'List', 	'idn1' => '802216', 												])
+            ->create([	'id' => '803335', 	'resource_action' => '803235', 	'type' => 'Form', 	'idn1' => '800910', 												])
+            ->create([	'id' => '803336', 	'resource_action' => '803236', 	'type' => 'List', 	'idn1' => '802217', 												])
+            ->create([	'id' => '803337', 	'resource_action' => '803237', 	'type' => 'FormWithData', 	'idn1' => '800910', 	'idn2' => '802707', 											])
+            ->create([	'id' => '803338', 	'resource_action' => '803238', 	'type' => 'ManageRelation', 	'idn1' => '800817', 	'idn2' => '802217', 											])
+            ->create([	'id' => '803339', 	'resource_action' => '803239', 	'type' => 'ManageRelation', 	'idn1' => '800816', 	'idn2' => '802203', 											])
+            ->create([	'id' => '803340', 	'resource_action' => '803240', 	'type' => 'ManageRelation', 	'idn1' => '800819', 	'idn2' => '802201', 											])
+            ->create([	'id' => '803341', 	'resource_action' => '803241', 	'type' => 'ManageRelation', 	'idn1' => '800818', 	'idn2' => '802217', 											])
+            ->create([	'id' => '803342', 	'resource_action' => '803242', 	'type' => 'ManageRelation', 	'idn1' => '800802', 	'idn2' => '802203', 											])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

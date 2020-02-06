@@ -22,4 +22,5 @@ class Task extends Model
     public function Progress(){ return $this->hasMany(PartnerTask::class,'task','id'); }
 	public function CategoryTask(){return $this->belongsTo(Category::class,'category','id'); }
 	public function CategoryProgress(){return $this->belongsTo(Category::class,'category','id'); }
+    public function Groups(){ return $this->belongsToMany(TaskGroupMaster::class,'group_tasks','task','group')->using(GroupTask::class)->withTimestamps(); }
 }
