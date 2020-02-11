@@ -16,8 +16,8 @@ class ResourceDataViewSectionItemTableSeeder extends Seeder
         $_ = \DB::statement('SELECT @@GLOBAL.foreign_key_checks');
         \DB::statement('set foreign_key_checks = 0');
         \Milestone\Appframe\Model\ResourceDataViewSectionItem::query()
-            ->create([	'id' => '803101', 	'section' => '803001', 	'label' => 'Name', 	'attribute' => 'name', 	'relation' => '800809', 											])
-            ->create([	'id' => '803102', 	'section' => '803001', 	'label' => 'Description', 	'attribute' => 'description', 	'relation' => '800809', 											])
+            ->create([	'id' => '803101', 	'section' => '803001', 	'label' => 'Name', 	'attribute' => 'name', 	'relation' => '800807', 											])
+            ->create([	'id' => '803102', 	'section' => '803001', 	'label' => 'Description', 	'attribute' => 'description', 	'relation' => '800807', 											])
             ->create([	'id' => '803103', 	'section' => '803002', 	'label' => 'Status', 	'attribute' => 'progress', 												])
             ->create([	'id' => '803104', 	'section' => '803002', 	'label' => 'Date', 	'attribute' => 'updated_at', 												])
             ->create([	'id' => '803105', 	'section' => '803002', 	'label' => 'Remarks', 	'attribute' => 'remarks', 												])

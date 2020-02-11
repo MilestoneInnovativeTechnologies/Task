@@ -4,7 +4,7 @@ namespace Milestone\Task\Seeder;
 
 use Illuminate\Database\Seeder;
 
-class GroupPartnerTableSeeder extends Seeder
+class TaskGroupPartnerTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

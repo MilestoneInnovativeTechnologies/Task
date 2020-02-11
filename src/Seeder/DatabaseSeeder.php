@@ -64,17 +64,12 @@ class DatabaseSeeder extends Seeder
              OrganisationTableSeeder::class,
              OrganisationContactTableSeeder::class,
              PartnerTableSeeder::class,
-
-//             GroupTableSeeder::class,
-
-             GroupPartnerTableSeeder::class,
 			 CategoryTableSeeder::class,
              TaskTableSeeder::class,
              PartnerTaskTableSeeder::class,
-             PartnerTaskProgressTableSeeder::class,
              TaskGroupMasterTableSeeder::class,
              GroupTaskTableSeeder::class,
-             TaskPartnerGroupTableSeeder::class,
+             TaskGroupPartnerTableSeeder::class,
          ]);
     }
 }

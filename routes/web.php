@@ -12,7 +12,7 @@ Route::group([
         $ptsk = \Milestone\Task\Model\PartnerTask::find(request('id')); if(!$ptsk || $ptsk->partner != \Illuminate\Support\Facades\Auth::id()) return redirect()->back();
         foreach ($ptsk->files as $aName) {
             if (request()->has($aName))
-                $ptsk->$aName = \Milestone\Appframe\Helper\Helper::Help('StoreFile', request($aName), ['form' => '800905','field' => $aName])->id;
+                $ptsk->$aName = \Milestone\Appframe\Helper\Helper::Help('StoreFile', request($aName), ['form' => '800904','field' => $aName])->id;
         }
         foreach (['progress','remarks'] as $key) $ptsk->$key = request($key);
         $ptsk->save(); return redirect()->back();

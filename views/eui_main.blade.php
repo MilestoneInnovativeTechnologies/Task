@@ -20,7 +20,7 @@
     <style type="text/css" rel="stylesheet">
         * { font-size: 12px; } a { text-decoration: none; color: #FFFFFF; } a:hover { text-decoration: none }
         img.img-thumbnail { width: 64px; max-height: 48px; margin-right: 3px;transition: all 0.3s; cursor: pointer; } img.img-thumbnail:hover { opacity: 0.7 }
-        td,th { vertical-align: middle !important; }
+        td,th { vertical-align: middle !important; } i { font-size: 11px; }
         .category-row { background-color: #f5dc9b; padding: 5px 0px 5px 0px; }
         .wrapper { display: flex; width: 100%; align-items: stretch; }
         #sidebar { min-width: 150px; max-width: 150px; height: 100vh; background: #c0d5d4; color: #fff; transition: all 0.3s; margin-right: 1px; }
@@ -173,7 +173,7 @@
     });
     Vue.component('task-tbody',{
         name:'task-tbody',
-        template: `<tbody><template  v-for="(tasks,category) in grouped"><tr class="category-row"><th class="p-2">@{{ tasks[0].category_progress.name }}</th><td colspan="{{ $admin ? 4 : 5 }}">&nbsp;</td></tr><tr v-for="ptsk in tasks" :key="'category-'+category+'-task-'+ptsk.task.id"><td>&nbsp;</td><td>@{{ ptsk.task.name }}<br>@{{ ptsk.task.description }}</td><task-progress :progress="ptsk.progress"></task-progress><td>@{{ ptsk.remarks }}</td><task-attachment :attachments="ptsk.__upload_file_details"></task-attachment>@if(!$admin)<task-action :ptsk="ptsk"/>@endif</tr></template></tbody>`,
+        template: `<tbody><template  v-for="(tasks,category) in grouped"><tr class="category-row"><th class="p-2">@{{ tasks[0].category_progress.name }}</th><td colspan="{{ $admin ? 4 : 5 }}">&nbsp;</td></tr><tr v-for="ptsk in tasks" :key="'category-'+category+'-task-'+ptsk.task.id"><td><i>@{{ ptsk.updated_at | date }}</i></td><td>@{{ ptsk.task.name }}<br><i>@{{ ptsk.task.description }}</i></td><task-progress :progress="ptsk.progress"></task-progress><td>@{{ ptsk.remarks }}</td><task-attachment :attachments="ptsk.__upload_file_details"></task-attachment>@if(!$admin)<task-action :ptsk="ptsk"/>@endif</tr></template></tbody>`,
         props: ['tasks'],
         computed: {
             grouped(){ let grouped = {}; this.tasks.forEach(task => { if(!grouped[task.category]) grouped[task.category] = []; grouped[task.category].push(task); }); return grouped; }
@@ -202,6 +202,12 @@
         }
     });
     @endunless
+    Vue.filter('date', function (value) {
+        if (!value) return '';
+        let date = new Date(value), time  = date.toTimeString().split(":",2).join(":");
+        let dParts = date.toDateString().split(" "), dStr = [].join(" ");
+        return [dParts[0]+',', dParts[2],dParts[1],dParts[3].substr(2),time].join(" ");
+    })
 
     const indexRouteComponent = {
         name: 'Index',

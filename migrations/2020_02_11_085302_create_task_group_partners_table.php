@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaskPartnerGroupTable extends Migration
+class CreateTaskGroupPartnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTaskPartnerGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_partner_group', function (Blueprint $table) {
+        Schema::create('task_group_partners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignCascade('task_group', 'task_group_masters');
-            $table->foreignCascade('partner_group', 'groups');
+            $table->foreignCascade('group', 'task_group_masters');
+            $table->foreignCascade('partner', 'users');
             $table->audit();
         });
     }
@@ -28,6 +28,6 @@ class CreateTaskPartnerGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_partner_group');
+        Schema::dropIfExists('task_group_partners');
     }
 }
