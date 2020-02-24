@@ -25,6 +25,10 @@ class ResourceScopeTableSeeder extends Seeder
             ->create([	'id' => '800707', 	'resource' => '800503', 	'name' => 'ProgressCount', 	'description' => 'Categories with pending and completed numbers', 	'method' => 'counts', 											])
             ->create([	'id' => '800708', 	'resource' => '800505', 	'name' => 'Recent24', 	'description' => 'Tasks which are updated with last 24 hours', 	'method' => 'recent24', 											])
             ->create([	'id' => '800709', 	'resource' => '800505', 	'name' => 'Recent48', 	'description' => 'Tasks which are updated with last 48 hours', 	'method' => 'recent48', 											])
+            ->create([	'id' => '800710', 	'resource' => '800504', 	'name' => 'ActiveTasks', 	'description' => 'Tasks have status not equal to Inactive', 	'method' => 'active', 											])
+            ->create([	'id' => '800711', 	'resource' => '800504', 	'name' => 'InActiveTasks', 	'description' => 'Tasks have status equal to Inactive', 	'method' => 'inactive', 											])
+            ->create([	'id' => '800712', 	'resource' => '800501', 	'name' => 'ActivePartners', 	'description' => 'Partners have status equal to active', 	'method' => 'active', 											])
+            ->create([	'id' => '800713', 	'resource' => '800501', 	'name' => 'InActivePartners', 	'description' => 'Partners have status equal to Inactive', 	'method' => 'inactive', 											])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

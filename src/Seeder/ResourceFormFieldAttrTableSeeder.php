@@ -46,6 +46,8 @@ class ResourceFormFieldAttrTableSeeder extends Seeder
             ->create([	'id' => '801328', 	'form_field' => '801030', 	'name' => 'inline', 	'value' => '4', 												])
             ->create([	'id' => '801329', 	'form_field' => '801031', 	'name' => 'inline', 	'value' => '4', 												])
             ->create([	'id' => '801330', 	'form_field' => '801032', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801331', 	'form_field' => '801033', 	'name' => 'inline', 	'value' => '4', 												])
+            ->create([	'id' => '801332', 	'form_field' => '801034', 	'name' => 'inline', 	'value' => '4', 												])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

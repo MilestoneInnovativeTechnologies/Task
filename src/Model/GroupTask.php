@@ -15,5 +15,9 @@ class GroupTask extends Pivot
             $Task = Task::find($task); $syncData = array_fill_keys($partners,['category' => $Task->category]);
             $Task->Partners()->syncWithoutDetaching($syncData);
         });
+        self::deleting(function($model){
+            $task = $model->task; $group = $model->group; $partners = TaskGroupPartner::where('group',$group)->pluck('partner')->toArray();
+            PartnerTask::where('task',$task)->whereIn('partner',$partners)->delete();
+        });
     }
 }

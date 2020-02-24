@@ -17,7 +17,7 @@ class ResourceListTableSeeder extends Seeder
         \DB::statement('set foreign_key_checks = 0');
         \Milestone\Appframe\Model\ResourceList::query()
             ->create([	'id' => '802201', 	'resource' => '800501', 	'name' => 'PartnerList', 	'description' => 'List all partners', 	'title' => 'Partners', 	'identity' => 'name', 	'items_per_page' => '30', 									])
-            ->create([	'id' => '802202', 	'resource' => '800504', 	'name' => 'Task List', 	'description' => 'List all tasks', 	'title' => 'Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
+            ->create([	'id' => '802202', 	'resource' => '800504', 	'name' => 'TaskList', 	'description' => 'List all active tasks', 	'title' => 'Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
             ->create([	'id' => '802203', 	'resource' => '800505', 	'name' => 'NewCategoryList', 	'description' => 'List of partnertask categories', 	'title' => 'New Categories', 	'identity' => 'id', 	'items_per_page' => '30', 									])
             ->create([	'id' => '802204', 	'resource' => '800505', 	'name' => 'NewTaskList', 	'description' => 'List of all new task', 	'title' => 'New Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
             ->create([	'id' => '802205', 	'resource' => '800505', 	'name' => 'DismissedTasks', 	'description' => 'List of all dismissed task', 	'title' => 'Dismissed Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
@@ -32,6 +32,8 @@ class ResourceListTableSeeder extends Seeder
             ->create([	'id' => '802214', 	'resource' => '800505', 	'name' => 'RecentlyUpdatedTasks24', 	'description' => 'List of tasks that updated recently within 24 hours', 	'title' => 'Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
             ->create([	'id' => '802215', 	'resource' => '800505', 	'name' => 'RecentlyUpdatedTasks48', 	'description' => 'List of tasks that updated recently within 48 hours', 	'title' => 'Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
             ->create([	'id' => '802216', 	'resource' => '800507', 	'name' => 'TaskGroupList', 	'description' => 'List all task groups', 	'title' => 'Task Groups', 	'identity' => 'name', 	'items_per_page' => '30', 									])
+            ->create([	'id' => '802217', 	'resource' => '800504', 	'name' => 'InactiveTaskList', 	'description' => 'List all inactive tasks', 	'title' => 'Inactive Tasks', 	'identity' => 'id', 	'items_per_page' => '30', 									])
+            ->create([	'id' => '802218', 	'resource' => '800501', 	'name' => 'PartnerListInactive', 	'description' => 'List all inactive partners', 	'title' => 'Inactive Partners', 	'identity' => 'id', 	'items_per_page' => '30', 									])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

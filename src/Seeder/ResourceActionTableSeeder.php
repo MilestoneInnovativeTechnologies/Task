@@ -17,7 +17,7 @@ class ResourceActionTableSeeder extends Seeder
         \DB::statement('set foreign_key_checks = 0');
         \Milestone\Appframe\Model\ResourceAction::query()
             ->create([	'id' => '803201', 	'resource' => '800501', 	'name' => 'CreatePartnerAction', 	'description' => 'Action to call create partner form', 			'menu' => 'New Partner', 									])
-            ->create([	'id' => '803202', 	'resource' => '800501', 	'name' => 'ListPartnerAction', 	'description' => 'Action to call list to list all partners', 			'menu' => 'List All Partners', 									])
+            ->create([	'id' => '803202', 	'resource' => '800501', 	'name' => 'ListPartnerAction', 	'description' => 'Action to call list to list all active partners', 			'menu' => 'List All Partners', 									])
             ->create([	'id' => '803203', 	'resource' => '800504', 	'name' => 'CreateTaskAction', 	'description' => 'Action to call form to create task', 			'menu' => 'New Task', 									])
             ->create([	'id' => '803204', 	'resource' => '800504', 	'name' => 'ListTaskAction', 	'description' => 'Action to call list to list all tasks', 			'menu' => 'List All Tasks', 									])
             ->create([	'id' => '803205', 	'resource' => '800504', 	'name' => 'ManageTaskPartners', 	'description' => 'Action to manage partners for a task', 	'title' => 'Add/Remove Partners', 											])
@@ -51,6 +51,8 @@ class ResourceActionTableSeeder extends Seeder
             ->create([	'id' => '803233', 	'resource' => '800501', 	'name' => 'ManagePartnerTasks', 	'description' => 'Action to add or remove tasks of a partner', 	'title' => 'Add/Remove Tasks', 											])
             ->create([	'id' => '803234', 	'resource' => '800504', 	'name' => 'ManagePartners', 	'description' => 'Action to assign partners for a task group', 	'title' => 'Add/Remove Partners', 											])
             ->create([	'id' => '803235', 	'resource' => '800501', 	'name' => 'ManageTaskGroups', 	'description' => 'Action to assign partners to a task group', 	'title' => 'Add/Remove Task Groups', 											])
+            ->create([	'id' => '803236', 	'resource' => '800504', 	'name' => 'ListAllInactiveTasks', 	'description' => 'Action to list all inactive tasks', 			'menu' => 'List All Inactive Tasks', 									])
+            ->create([	'id' => '803237', 	'resource' => '800501', 	'name' => 'ListAllInactivePartners', 	'description' => 'Action to list all inactive partners', 			'menu' => 'List All Inactive Partners', 									])
         ;
         \DB::statement('set foreign_key_checks = ' . $_);
     }

@@ -16,6 +16,9 @@ class PartnerTask extends ModelAlias
             $admin = Auth::user()->Groups->contains('name','task_administrators');
             if(!$admin) $builder->where('partner',Auth::id());
         });
+        self::addGlobalScope('active',function(Builder $builder){
+            $builder->whereHas('Task',function($Q){ $Q->active(); })->whereHas('Partner',function($Q){ $Q->active(); });
+        });
         self::created(function($model){
             if($model->category) return;
             $model->category = $model->Task->category;

@@ -3,7 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Bootstrap CSS -->
@@ -86,7 +86,7 @@
             </ul>
         </nav>
         <div class="container">
-            <div class="clearfix mt-4">
+            <div class="clearfix mt-4" v-if="h5">
                 <p class="h5 float-left">@{{ resellerName }}</p>
                 <p class="h5 float-right"><?=date('d/M/Y h:i A')?></p>
             </div>
@@ -158,6 +158,9 @@
             resellers: {},
             image: null,
             ptsk: null,
+        },
+        getters: {
+            luTime({ tasks }){ return tasks.sort((n,c) => new Date(c.updated_at).getTime() - new Date(n.updated_at).getTime())[0].updated_at }
         }
     });
 
@@ -207,15 +210,25 @@
         let date = new Date(value), time  = date.toTimeString().split(":",2).join(":");
         let dParts = date.toDateString().split(" "), dStr = [].join(" ");
         return [dParts[0]+',', dParts[2],dParts[1],dParts[3].substr(2),time].join(" ");
-    })
+    });
 
     const indexRouteComponent = {
         name: 'Index',
+        @unless($admin)
+        data(){ return { links:['Compliance'] } },
+        @endunless
         methods: { manageTasks(r){ let vm = this; vm.$store.state.tasks = r; if(Array.isArray(r)) r.map(({ partner:{ id,name } }) => vm.$set(vm.$store.state.resellers,id,name)) } },
-        created(){ $.post('eui/tasks',this.manageTasks);@if(!$admin) @endif }@if($admin),
+        created(){ $.post('eui/tasks',this.manageTasks); }@if($admin),
         template: '<h1 style="color: #E7E7E7; text-align: center" class="my-5">Select reseller from side bar!</h1>'@else,
-        template: `<div v-if="$store.state.tasks" class="table-responsive"><table class="table table-sm"><task-thead></task-thead><task-tbody :tasks="$store.state.tasks"></task-tbody></table></div><h1 v-else style="color: #E7E7E7; text-align: center" class="my-5">Loading Tasks, Please wait!</h1>`
+        template: `<div><div class="my-5 mx-auto" style="width: 650px;"><img alt="ABM" src="https://lh3.googleusercontent.com/v3Az8T_ZqWUqoMFIdEIn5pbfTFGbpI6C8voje62FOO9i41Bdqdxz_YXlsclxDJryPieTBotWT8ptq0uLpd-00dkrCj-M7h6MR272CkKpLFUm1Ps7Ix_NT7oCiymYuiXh7IGoDCC6=w320-h240-no" class="img-fluid"><img alt="MCI" src="https://lh3.googleusercontent.com/ftA_iVdTLLTjS7TtI3xNIh5jvj0lS3pcvPno2AolInGJHB1_KYoBPgpurDBUPDzeup4rSRU7tQMuhQSvKN-huq8mOfTHgoWzTIRTcNRwur5NRnsfsDNhvbFesZlUREfw4wgfLt-q=w320-h240-no" class="img-fluid"></div><hr /><div class="text-center mb-5"><router-link v-for="link in links" :to="{ name:link }" class="btn btn-info mx-1">@{{ link }}</router-link></div></div>`
         @endif
+    };
+
+    const ComplianceRouteComponent = {
+        name: 'Compliance',
+        template: `<div v-if="$store.state.tasks" class="table-responsive"><table class="table table-sm"><task-thead></task-thead><task-tbody :tasks="$store.state.tasks"></task-tbody></table></div><h1 v-else style="color: #E7E7E7; text-align: center" class="my-5">Loading Tasks, Please wait!</h1>`,
+        methods: { manageTasks(r){ let vm = this; vm.$store.state.tasks = r; if(Array.isArray(r)) r.map(({ partner:{ id,name } }) => vm.$set(vm.$store.state.resellers,id,name)) } },
+        created(){ if(!this.$store.state.tasks || !this.$store.state.tasks.length) $.post('/eui/tasks',this.manageTasks); },
     };
 
     const resellerTaskRouteComponent = {
@@ -224,11 +237,29 @@
         computed: {
             rid(){ return this.$route.params.id },
             tasks(){ return this.$store.state.tasks.filter(({ partner }) => this.rid == partner.id) },
+            time(){ return this.$store.getters.luTime }
         },
+        methods: {
+            addUpdates(r){
+                if(!r || !r.length) return;
+                let tasks = this.$store.state.tasks;
+                r.forEach(ptsk => {
+                    let iIdx = tasks.findIndex(({ id }) => ptsk.id == id);
+                    if(iIdx === -1) this.$store.state.tasks.push(ptsk);
+                    else this.$set(this.$store.state.tasks,iIdx,ptsk);
+                    //else for(let xKey in ptsk) this.$set(this.$store.state.tasks[iIdx],xKey,ptsk[xKey]);
+                })
+            }
+        },
+        beforeRouteUpdate(to,from,next){
+            $.post('/eui/updates',{ time:this.time },this.addUpdates);
+            next();
+        }
     };
     const routes = [
-        { path: '/eui', component: indexRouteComponent },
-        { path: '/eui/reseller/:id', component: resellerTaskRouteComponent },
+        { path: '/eui', component: indexRouteComponent, name:'index' },
+        { path: '/eui/Compliance', component: ComplianceRouteComponent, name:'Compliance' },
+        { path: '/eui/reseller/:id', component: resellerTaskRouteComponent, name:'task' },
     ];
     const router = new VueRouter({ routes,mode:'history',linkActiveClass:'active' });
     const VueApp = new Vue({
@@ -238,6 +269,7 @@
             reseller(){ return {{ $admin ? 'this.$route.params.id' : \Illuminate\Support\Facades\Auth::id() }}; },
             resellerName(){ return this.reseller ? this.$store.state.resellers[this.reseller] : '' },
             ptsk(){ return this.$store.state.ptsk },
+            h5(){ return this.$route.name !== 'index' },
             progress: {
                 get(){ return (this.ptsk && this.ptsk.progress === 'Completed') ? 'Completed' : 'New'; },
                 set(v){ return; }
