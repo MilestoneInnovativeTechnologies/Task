@@ -10,10 +10,10 @@ Route::group([
     Route::post('progress',function(){
         if(!request('id')) return redirect()->back();
         $ptsk = \Milestone\Task\Model\PartnerTask::find(request('id')); if(!$ptsk || $ptsk->partner != \Illuminate\Support\Facades\Auth::id()) return redirect()->back();
-        foreach ($ptsk->files as $aName) {
-            if (request()->has($aName))
-                $ptsk->$aName = \Milestone\Appframe\Helper\Helper::Help('StoreFile', request($aName), ['form' => '800904','field' => $aName])->id;
-        }
+        foreach (['attachment1','attachment2','attachment3'] as $aName)
+            $ptsk->$aName = request()->hasFile($aName)
+                ? \Milestone\Appframe\Helper\Helper::Help('StoreFile', request($aName), ['form' => '800904','field' => $aName])->id
+                : (request()->has($aName) ? $ptsk->$aName : null);
         foreach (['progress','remarks'] as $key) $ptsk->$key = request($key);
         $ptsk->save(); return redirect()->back();
     })->name('progress');

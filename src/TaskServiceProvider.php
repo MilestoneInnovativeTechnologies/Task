@@ -17,6 +17,7 @@ class TaskServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(implode([__DIR__,'..','config','filesystems','disks.php'],DIRECTORY_SEPARATOR),'filesystems.disks');
         $this->loadRoutesFrom(implode([__DIR__,'..','routes','web.php'],DIRECTORY_SEPARATOR));
         $this->loadViewsFrom(implode([__DIR__,'..','views'],DIRECTORY_SEPARATOR),'task');
+        $this->publishes([implode([__DIR__,'..','assets'],DIRECTORY_SEPARATOR) => public_path('tasks')]);
     }
 
     /**
